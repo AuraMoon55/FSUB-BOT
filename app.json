@@ -1,0 +1,29 @@
+{
+  "env": {
+    "API_ID": {
+      "description": "Your APP ID get this from my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Your APP HASH get this from my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Your bot token get this from @BOTFATHER",
+      "required": true
+    },
+    "DB_CHANNEL": {
+      "description": "id of database channel where files will be stored",
+      "required": true,
+      "value":"Starts with -100"
+    },
+    "FSUB_CHANNEL": {
+      "description": "id of channel that users have to subscribe before using bot",
+      "required": true,
+      "value":"Starts with -100"
+    },
+  },
+  "buildpacks": [
+    {"url": "heroku/python"}
+  ]
+}
