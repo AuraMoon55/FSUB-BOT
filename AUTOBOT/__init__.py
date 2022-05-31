@@ -16,3 +16,10 @@ x = app.get_me()
 NAME = x.first_name
 USERNAME = x.username
 ID = x.id
+
+
+def get_commands(key: str):
+  commands = []
+  commands.append(key)
+  commands.append(f"{key}@{USERNAME}")
+  return commands
