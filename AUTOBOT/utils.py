@@ -1,7 +1,6 @@
 import base64
 
 
-
 async def encode(stri):
   stri = stri.encode("ascii")
   stri = base64.b64encode(stri)
