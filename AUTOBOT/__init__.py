@@ -1,5 +1,7 @@
 from pyrogram import Client
 from config import *
+import pyromod.listen
+
 
 app = Client(
   "AUTOBOT",
