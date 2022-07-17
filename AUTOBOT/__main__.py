@@ -15,6 +15,7 @@ async def _start(_, message):
     subed = await check_sub(message.from_user.id)
     if not subed:
       fsub = await app.get_chat(FSUB)
+      inv = await app.create_chat_invite_link(FSUB)
       return await message.reply_text(
         text=f"It seems you aren't a participant of {fsub.title}\nTo use me its mandatory to join it in order to use me \nPlease join it and try again later",
         reply_markup=InlineKeyboardMarkup(
@@ -22,7 +23,7 @@ async def _start(_, message):
             [
               InlineKeyboardButton(
                 text=f"Join {fsub.title}",
-                url=fsub.invite_link
+                url=inv
               )
             ]
           ]
