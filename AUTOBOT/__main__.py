@@ -111,9 +111,9 @@ async def callbacks(_, query):
           return await msg.reply_text(f"**An Exception occured**\n\n__{Exception}__")
   elif qd == "multigen":
     await query.message.delete()
-      msg = await app.ask(chat_id=query.chat.id, text=f"Please Forward The Starting Message from DB CHANNEL")
-      if msg.text: 
-        return await msg.reply_text("Process Cancelled ")
+    msg = await app.ask(chat_id=query.chat.id, text=f"Please Forward The Starting Message from DB CHANNEL")
+    if msg.text: 
+      return await msg.reply_text("Process Cancelled ")
     try:
       x = await app.get_messages(chat_id=DB_CHANNEL, message_ids=msg.forward_from_message_id)
       link = await encode(f"{x.id}")
