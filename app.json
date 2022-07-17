@@ -21,6 +21,11 @@
       "description": "id of channel that users have to subscribe before using bot",
       "required": true,
       "value":"Starts with -100"
+    },
+    "SUDOERS": {
+      "description": "id of admins",
+      "required": true,
+      "value":"5365575465"
     }
   }
 }
