@@ -67,7 +67,7 @@ async def callbacks(_, query):
   qm = query.message
   if qd == "singlegen":
     await query.message.delete()
-    msg = await app.ask(chat_id=query.chat.id, text="Please Forward message from DB_CHANNEL", reply_markup=ForceReply)
+    msg = await app.ask(chat_id=query.message.chat.id, text="Please Forward message from DB_CHANNEL", reply_markup=ForceReply)
     if msg.text:
       if ms == "/cancel":
         return await msg.reply('Process Cancelled')
@@ -110,7 +110,7 @@ async def callbacks(_, query):
           return await msg.reply_text(f"**An Exception occured**\n\n__{Exception}__")
   elif qd == "multigen":
     await query.message.delete()
-    msg = await app.ask(chat_id=query.chat.id, text=f"Please Forward The Starting Message from DB CHANNEL")
+    msg = await app.ask(chat_id=query.message.chat.id, text=f"Please Forward The Starting Message from DB CHANNEL")
     if msg.text: 
       return await msg.reply_text("Process Cancelled ")
     try:
