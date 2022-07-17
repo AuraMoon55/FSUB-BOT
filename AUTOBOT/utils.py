@@ -1,4 +1,7 @@
 import base64
+from AUTOBOT import app
+from config import FSUB
+from pyrogram.errors import UserNotParticipant
 
 
 async def encode(stri):
@@ -20,3 +23,10 @@ async def get_ids(strt, end):
     id = strt + a
     ids.append(int(id))
   return ids
+
+async def check_sub(user):
+  try:
+    is_user = await app.get_chat_member(FSUB, user)
+  except UserNotParticipant:
+    return False
+  return True
