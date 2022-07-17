@@ -82,6 +82,7 @@ async def callbacks(_, query):
         await x.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
         return await msg.reply_text(text=f"Share Url Formed successfully \n\n`{url}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
       except Exception:
+        print(Exception)
         return await msg.reply_text(f"**An Exception occured**\n\n__{Exception}__")
     elif msg.forward_from:
       if msg.forward_from_chat:
@@ -94,6 +95,7 @@ async def callbacks(_, query):
             await mess.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
             return await msg.reply_text(text=f"Share Url Formed successfully \n\n`{url}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
           except Exception:
+            print(Exception)
             return await msg.reply_text(f"**An Exception occured**\n\n__{Exception}__")
         else:
           return await msg.reply_text("Not Forward from DB CHANNEL")
@@ -105,6 +107,7 @@ async def callbacks(_, query):
           await x.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
           return await msg.reply_text(text=f"Share Url Formed successfully \n\n`{url}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
         except Exception:
+          print(Exception)
           return await msg.reply_text(f"**An Exception occured**\n\n__{Exception}__")
   elif qd == "multigen":
     await query.message.delete()
@@ -126,4 +129,9 @@ async def callbacks(_, query):
       url = f"https://{USERNAME}?start=get_{link}_{link2}"
       return await msg.reply_text(text=f"Share Url Formed successfully \n\n`{url}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
     except Exception:
+      print(Exception)
       return await msg.reply_text(f"**An Exception occured**\n\n__{Exception}__")
+
+
+if __name__ == "__main__":
+  idle()
