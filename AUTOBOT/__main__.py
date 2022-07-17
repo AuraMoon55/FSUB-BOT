@@ -23,7 +23,7 @@ async def _start(_, message):
             [
               InlineKeyboardButton(
                 text=f"Join {fsub.title}",
-                url=inv
+                url=inv.invite_link
               )
             ]
           ]
