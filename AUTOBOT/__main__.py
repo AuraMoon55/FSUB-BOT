@@ -1,6 +1,5 @@
 from pyrogram import filters, idle
 from . import app, get_commands, NAME, ID, USERNAME 
-from pyromod import listen
 from config import *
 import asyncio
 from .utils import *
