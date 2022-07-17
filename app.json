@@ -21,7 +21,7 @@
       "description": "id of channel that users have to subscribe before using bot",
       "required": true,
       "value":"Starts with -100"
-    },
+    }
   },
   "buildpacks": [
     {"url": "heroku/python"}
