@@ -30,7 +30,7 @@ async def _start(_, message):
       )
     else:
       txt = message.text.split(None, 1)[1]
-      txt = txt.split("-")
+      txt = txt.split("_")
       if len(txt) == 3:
         start_msg = await decode(txt[1])
         end_msg = await decode(txt[2])
