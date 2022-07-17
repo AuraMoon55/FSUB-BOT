@@ -22,8 +22,5 @@
       "required": true,
       "value":"Starts with -100"
     }
-  },
-  "buildpacks": [
-    {"url": "heroku/python"}
-  ]
+  }
 }
