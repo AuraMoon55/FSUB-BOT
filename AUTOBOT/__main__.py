@@ -67,7 +67,7 @@ async def callbacks(_, query):
   qm = query.message
   if qd == "singlegen":
     await query.message.delete()
-    msg = await app.ask(chat_id=query.message.chat.id, text="Please Forward message from DB_CHANNEL", reply_markup=ForceReply)
+    msg = await app.ask(chat_id=query.message.chat.id, text="Please Forward message from DB_CHANNEL")
     if msg.text:
       if ms == "/cancel":
         return await msg.reply('Process Cancelled')
