@@ -90,7 +90,7 @@ async def callbacks(_, query):
             mess = await app.get_messages(DB_CHANNEL, messages_id=msg.forward_from_message_id)
             
             link= await encode(f"{mess.message_id}")
-            url = f'https://{USERNAME}?start=get_{link}'
+            url = f'https://t.me/{USERNAME}?start=get_{link}'
             await mess.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
             return await msg.reply_text(text=f"Share Url Formed successfully \n\n`{url}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
           except Exception:
@@ -102,7 +102,7 @@ async def callbacks(_, query):
         try:
           x = await msg.copy(DB_CHANNEL)
           link = await encode(f"{x.message_id}")
-          url = f"https://{USERNAME}?start=get_{link}"
+          url = f"https://t.me/{USERNAME}?start=get_{link}"
           await x.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
           return await msg.reply_text(text=f"Share Url Formed successfully \n\n`{url}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
         except Exception:
@@ -116,16 +116,16 @@ async def callbacks(_, query):
     try:
       x = await app.get_messages(chat_id=DB_CHANNEL, message_ids=msg.forward_from_message_id)
       link = await encode(f"{x.message_id}")
-      url = f"https://{USERNAME}?start=get_{link}"
+      url = f"https://t.me/{USERNAME}?start=get_{link}"
       await x.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
       msg2 = await  app.ask(chat_id=query.chat.id, text=f"Please Forward The Last Message from DB CHANNEL")
       if msg2.text:
         return await msg2.reply_text("Process Cancelled")
       x2 = await app.get_messages(chat_id=DB_CHANNEL, message_ids=msg.forward_from_message_id)
       link2 = await encode(f"{x2.message_id}")
-      url2 = f"https://{USERNAME}?start=get_{link2}"
+      url2 = f"https://t.me/{USERNAME}?start=get_{link2}"
       await x.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url2}")]]))
-      url = f"https://{USERNAME}?start=get_{link}_{link2}"
+      url = f"https://t.me/{USERNAME}?start=get_{link}_{link2}"
       return await msg.reply_text(text=f"Share Url Formed successfully \n\n`{url}`", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Share Url", url=f"https://t.me/share/url?url={url}")]]))
     except Exception:
       print(Exception)
